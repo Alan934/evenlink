@@ -1,0 +1,50 @@
+.titulo-asistente {
+    font-size: 37px;
+    text-align: center;
+    margin-top: 50px;
+    color: #162C29;
+  }
+  
+  .ventana-asistente {
+    display: flex;
+    align-items: center;
+    max-width: 500px;
+    padding: 15px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ffe26e;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    color: #162C29;
+  }
+  
+  /* Media Query para pantallas de tamaño tablet o menor */
+  @media (max-width: 768px) {
+    .titulo-asistente {
+      font-size: 28px;
+      margin-top: 30px;
+    }
+  
+    .ventana-asistente {
+      max-width: 90%;
+      font-size: 13px;
+      padding: 12px;
+    }
+  }
+  
+  /* Media Query para pantallas de tamaño móvil o menor */
+  @media (max-width: 480px) {
+    .titulo-asistente {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+  
+    .ventana-asistente {
+      max-width: 95%;
+      font-size: 12px;
+      padding: 10px;
+    }
+  }
+  
