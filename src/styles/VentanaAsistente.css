@@ -111,3 +111,19 @@
     color: #333;
     width: 100%;
 }
+
+.whatsapp-button {
+    padding: 12px 20px; /* Tamaño del botón más grande */
+    border: none;
+    border-radius: 8px; /* Esquinas redondeadas */
+    background-color: #28a745; /* Color verde para el botón de WhatsApp */
+    color: white;
+    cursor: pointer;
+    font-size: 16px; /* Tamaño de fuente del botón más grande */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transición para efecto de hover */
+}
+
+.whatsapp-button:hover {
+    background-color: #218838; /* Color más oscuro al pasar el mouse */
+    transform: translateY(-2px); /* Pequeño desplazamiento hacia arriba */
+}

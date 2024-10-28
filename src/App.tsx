@@ -2,7 +2,6 @@ import React, { createContext, useState } from "react";
 import Encabezado from "./components/Encabezado";
 import NavBar from "./components/NavBar";
 import VentanaAsistente from "./components/VentanaAsistente";
-import BotonEnviar from "./components/BotonEnviar";
 import SobreNosotros from "./components/SobreNosotros";
 import PieDePagina from "./components/PieDePagina";
 import Servicios from "./components/Servicios";
@@ -28,7 +27,6 @@ function App() {
       {mensajeGlobal === "inicio" && (
         <>
           <VentanaAsistente />
-          <BotonEnviar />
           <SobreNosotros />
         </>
       )}
