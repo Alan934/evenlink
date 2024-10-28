@@ -1,0 +1,35 @@
+.servicios {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .titulo {
+    font-size: 2rem;
+    color: #162C29;
+    margin-bottom: 30px;
+  }
+  
+  .servicio {
+    margin-bottom: 30px;
+  }
+  
+  .subtitulo {
+    font-size: 1.5rem;
+    color: #162C29;
+    margin-bottom: 15px;
+  }
+  
+  .imagen {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 15px 0;
+  }
+  
+  .texto {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+  }

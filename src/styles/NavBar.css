@@ -1,28 +1,35 @@
+/* Navbar general */
 .navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   background-color: #162C29;
   padding: 10px;
   border-bottom: 3px solid #ffe26e;
 }
 
-/* Estilo para el logo */
+/* Logo - ocupa 25% */
 .nav-logo {
-  color: #ffffff;
-  font-size: 20px;
+  flex: 1;
+  max-width: 25%;
 }
 
-/* Estilo para el botón de menú */
+.nav-logo img {
+  width: 100%;
+  height: auto;
+}
+
+/* Botón de menú */
 .nav-toggle {
-  display: none; /* Ocultar en resoluciones grandes */
+  display: none;
   font-size: 24px;
+  padding-right: 20px;
   color: #ffffff;
   cursor: pointer;
 }
 
-/* Estilos para cada elemento de la barra de navegación */
+/* Elementos de navegación en pantallas grandes */
 .nav-items {
+  flex: 3;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -35,44 +42,45 @@
   border-radius: 5px;
   transition: background-color 0.3s ease;
   cursor: pointer;
-  margin-inline: 30px;
 }
 
 .nav-item:hover {
   background-color: #a28f43;
 }
 
-/* Media Query para pantallas más pequeñas */
+/* Media Query para pantallas pequeñas */
 @media (max-width: 768px) {
   .nav-toggle {
-    display: block; /* Mostrar el botón de menú en pantallas pequeñas */
+    display: block;
   }
 
   .nav-items {
-    display: none; /* Ocultar los elementos de navegación por defecto */
+    display: none;
     flex-direction: column;
-    width: 100%;
+    width: calc(100%); /* Más ancho y con margen a la derecha */
+    
     background-color: #162C29;
     position: absolute;
-    top: 50px;
+    top: 60px; /* Espaciado adicional debajo del logo */
     left: 0;
     z-index: 10;
+    border-radius: 0 0 8px 8px; /* Opcional: bordes redondeados */
   }
 
   .nav-items.open {
-    display: flex; /* Mostrar el menú cuando está abierto */
+    display: flex;
   }
 
   .nav-item {
     font-size: 18px;
-    margin: 10px 0;
+    margin: 12px 0; /* Más espacio entre los elementos */
   }
 }
 
 @media (max-width: 480px) {
   .nav-item {
     font-size: 16px;
-    margin: 8px 0;
-    padding: 6px 12px;
+    margin: 10px 0;
+    padding: 8px 16px;
   }
 }

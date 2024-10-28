@@ -1,0 +1,15 @@
+.pie-de-pagina {
+    background-color: #162C29;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  
+  .contacto, .empresa-info {
+    margin-bottom: 10px;
+  }
+  
+  .contacto p, .empresa-info p {
+    margin: 5px 0;
+  }

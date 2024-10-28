@@ -11,7 +11,7 @@ const BotonEnviar: React.FC = () => {
         justifyContent: "center",
       }}
     >
-      <button className="boton">Enviar</button>
+      <button className="boton">Enviar Vía WhatsApp</button>
     </div>
   );
 };

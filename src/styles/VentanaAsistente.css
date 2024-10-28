@@ -1,50 +1,113 @@
 .titulo-asistente {
-    font-size: 37px;
     text-align: center;
-    margin-top: 50px;
-    color: #162C29;
-  }
-  
-  .ventana-asistente {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.ventana-asistente {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    max-width: 500px;
-    padding: 15px;
+    max-width: 600px; /* Aumenté el ancho máximo */
+    padding: 20px;
     margin: 0 auto;
     margin-bottom: 20px;
-    background-color: #f5f5f5;
-    border: 1px solid #ffe26e;
+    background-color: #ffffff; /* Fondo blanco para mayor contraste */
+    border: 1px solid #e0e0e0; /* Borde más suave */
+    border-radius: 12px; /* Esquinas más redondeadas */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra más difusa */
+    font-size: 16px; /* Tamaño de fuente mayor */
+    color: #333;
+}
+
+.button-container {
+    display: flex;
+    gap: 15px; /* Mayor espacio entre botones */
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.asistente-button {
+    padding: 12px 20px; /* Tamaño del botón más grande */
+    border: none;
+    border-radius: 8px; /* Esquinas redondeadas */
+    background-color: #007bff; /* Color principal */
+    color: white;
+    cursor: pointer;
+    font-size: 16px; /* Tamaño de fuente del botón más grande */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Añadí transición para efecto de hover */
+}
+
+.asistente-button:hover {
+    background-color: #0056b3; /* Color al pasar el mouse */
+    transform: translateY(-2px); /* Pequeño desplazamiento hacia arriba */
+}
+
+.reservation-section,
+.pricing-section {
+    width: 100%; /* Asegura que ocupe el ancho completo */
+    margin-top: 20px;
+}
+
+.input-group {
+    margin-top: 20px;
+    text-align: left;
+    width: 100%;
+}
+
+.input-group h4 {
+    margin-bottom: 8px;
+    font-size: 18px; /* Aumento en tamaño de encabezados */
+}
+
+.input-date,
+.input-number {
+    padding: 10px; /* Tamaño de entrada más grande */
+    width: 100%;
+    font-size: 16px; /* Tamaño de fuente mayor */
+    border-radius: 8px; /* Esquinas redondeadas */
+    border: 1px solid #ccc; /* Borde más suave */
+    margin-bottom: 15px;
+    background-color: #f9f9f9; /* Fondo ligeramente gris */
+    transition: border-color 0.3s ease; /* Transición en el borde */
+}
+
+.input-date:focus,
+.input-number:focus {
+    border-color: #007bff; /* Borde azul al enfocarse */
+}
+
+.price-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+    text-align: left;
+    width: 100%;
+}
+
+.price-list li {
+    padding: 10px 0; /* Más espacio entre los elementos de la lista */
+    border-bottom: 1px solid #e0e0e0; /* Borde inferior suave */
+    color: #555; /* Color de texto más suave */
+}
+
+.order-summary {
+    margin-top: 20px;
+    padding: 15px; /* Espacio interno alrededor del resumen */
+    border: 1px solid #e0e0e0; /* Borde alrededor del resumen */
+    border-radius: 8px; /* Esquinas redondeadas */
+    background-color: #f8f9fa; /* Fondo claro para el resumen */
+    width: 100%;
+}
+
+.message {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    font-size: 14px;
-    color: #162C29;
-  }
-  
-  /* Media Query para pantallas de tamaño tablet o menor */
-  @media (max-width: 768px) {
-    .titulo-asistente {
-      font-size: 28px;
-      margin-top: 30px;
-    }
-  
-    .ventana-asistente {
-      max-width: 90%;
-      font-size: 13px;
-      padding: 12px;
-    }
-  }
-  
-  /* Media Query para pantallas de tamaño móvil o menor */
-  @media (max-width: 480px) {
-    .titulo-asistente {
-      font-size: 24px;
-      margin-top: 20px;
-    }
-  
-    .ventana-asistente {
-      max-width: 95%;
-      font-size: 12px;
-      padding: 10px;
-    }
-  }
-  
+    background-color: #e9ecef; /* Fondo claro para mensajes */
+    color: #333;
+    width: 100%;
+}

@@ -1,24 +1,44 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-//import GrupoLista from "./components/GrupoLista";
-import NavBar from "./components/NavBar";
+import React, { createContext, useState } from "react";
 import Encabezado from "./components/Encabezado";
+import NavBar from "./components/NavBar";
 import VentanaAsistente from "./components/VentanaAsistente";
-import CajaUsuario from "./components/CajaUsuario";
 import BotonEnviar from "./components/BotonEnviar";
+import SobreNosotros from "./components/SobreNosotros";
+import PieDePagina from "./components/PieDePagina";
+import Servicios from "./components/Servicios";
+import Calendario from "./components/Calendario";
 import FloatingBubble from "./components/BurbujaWhatsApp";
 
+// VARIABLE GLOBAL PARA PANEJO DE PÁGINAS
+interface GlobalContextProps {
+  mensajeGlobal: string;
+  setMensajeGlobal: (mensaje: string) => void;
+}
+export const GlobalContext = createContext<GlobalContextProps | undefined>(
+  undefined
+);
+
 function App() {
-  const mensaje = "Bienvenido a nuestro servicio!";
+  const [mensajeGlobal, setMensajeGlobal] = useState("inicio");
+
   return (
-    <div>
+    <GlobalContext.Provider value={{ mensajeGlobal, setMensajeGlobal }}>
       <Encabezado />
       <NavBar />
-      <VentanaAsistente mensaje={mensaje} />
+      {mensajeGlobal === "inicio" && (
+        <>
+          <VentanaAsistente />
+          <BotonEnviar />
+          <SobreNosotros />
+        </>
+      )}
+      {mensajeGlobal === "servicios" && <Servicios />}
+      {mensajeGlobal === "calendario" && <Calendario />}
+      {mensajeGlobal === "contacto" && <div>Contacto</div>}
+      <NavBar />
+      <PieDePagina />
       <FloatingBubble />
-      <CajaUsuario />
-      <BotonEnviar />
-    </div>
+    </GlobalContext.Provider>
   );
 }
 

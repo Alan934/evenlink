@@ -1,0 +1,23 @@
+.calendario-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .titulo {
+    font-size: 2rem;
+    color: #162C29;
+    margin-bottom: 20px;
+  }
+  
+  .calendario {
+    margin: 0 auto;
+  }
+  
+  .descripcion {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+  }
