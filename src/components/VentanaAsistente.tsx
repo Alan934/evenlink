@@ -133,13 +133,13 @@ const VirtualAssistant: React.FC = () => {
             Realizar Reserva
           </button>
           <button className="asistente-button" onClick={handleShowPricing}>
-            Precios y Horarios
+            Precios
           </button>
         </div>
 
         {showPricing && (
           <div className="pricing-section">
-            <h4>Consulta de precios y horarios</h4>
+            <h4>Consulta de Precios</h4>
             <div className="input-group">
               <h4>Pedido de Sillas</h4>
               <input
