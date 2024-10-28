@@ -40,21 +40,21 @@ const VirtualAssistant: React.FC = () => {
   const generateWhatsAppMessage = () => {
     let details = "";
     const whatsappNumber = "542615406465";
-  
+
     const formattedBookingDate = bookingDate
-      ? `Reserva para el ${bookingDate} de ${startHour}:${startMinute.toString().padStart(2, "0")} a ${endHour}:${endMinute.toString().padStart(2, "0")}`
+      ? `Reserva para el ${bookingDate} a las ${startHour}:${startMinute.toString().padStart(2, "0")} hasta ${endHour}:${endMinute.toString().padStart(2, "0")}`
       : "Fecha no seleccionada";
-  
+
     if (orderSummary) {
       details = `${formattedBookingDate}\n${orderSummary.chairsSummary}\n${orderSummary.tablesSummary}\n${orderSummary.totalCostSummary}`;
     } else {
       details = `${formattedBookingDate}\nCosto total por horas: ${hours} x $${HOURLY_RATE} = $${hours * HOURLY_RATE}`;
     }
-  
+
     details += `\n\nPor favor, elija una fecha para su reserva.`;
-  
+
     return `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(details)}`;
-  };  
+  };
 
   const handleLoadOrder = () => {
     const totalChairsCost = chairs * CHAIR_PRICE;
@@ -71,61 +71,41 @@ const VirtualAssistant: React.FC = () => {
   };
 
   const handleBooking = async () => {
-    if (!bookingDate) {
-      setMessage("Por favor, selecciona una fecha.");
-      return;
-    }
-
-    const today = new Date();
-    const selectedDate = new Date(bookingDate);
-    if (selectedDate <= today) {
-      setMessage("Error: La fecha de la reserva debe ser posterior al día de hoy.");
-      return;
-    }
 
     const startTime = startHour + startMinute / 60;
     const endTime = endHour + endMinute / 60;
+
     const duration = endTime - startTime;
 
-    if (duration !== hours) {
-      setMessage("Error: La cantidad de horas debe coincidir con el rango de horas seleccionadas.");
-      return;
+    if (duration <= 0) {
+        setMessage("Error: La hora de inicio debe ser menor que la hora de fin.");
+        return;
     }
 
-    if (startTime >= endTime) {
-      setMessage("Error: La hora de inicio debe ser menor que la hora de fin.");
-      return;
-    }
+    const selectedHours = Math.floor(duration);
 
-    if (endHour === 22 && endMinute !== 0) {
-      setMessage("Error: La hora de 'Hasta' no puede tener minutos si es 22:00.");
-      return;
-    }
+    setHours(selectedHours);
 
     const totalChairsCost = chairs * CHAIR_PRICE;
     const totalTablesCost = tables * TABLE_PRICE;
     const totalHoursCost = hours * HOURLY_RATE;
+    const totalCost = totalChairsCost + totalTablesCost + totalHoursCost;
 
-    if (chairs === 0 && tables === 0) {
-      const totalReservationCost = totalHoursCost;
-      setMessage(`Reserva confirmada para el ${bookingDate} de ${startHour}:${startMinute.toString().padStart(2, "0")} a ${endHour}:${endMinute.toString().padStart(2, "0")} horas.\n\nCosto total de la reserva por horas: ${hours} x $${HOURLY_RATE} = $${totalHoursCost}\nCosto total de la reserva: $${totalReservationCost}`);
-    } else {
-      const totalCost = totalChairsCost + totalTablesCost + totalHoursCost;
-      setOrderSummary({
+    const orderSummary = {
         chairsSummary: `Total de sillas: ${chairs} x $${CHAIR_PRICE} = $${totalChairsCost}`,
         tablesSummary: `Total de mesas: ${tables} x $${TABLE_PRICE} = $${totalTablesCost}`,
         totalCostSummary: `Costo total: $${totalCost}`,
-      });
+    };
 
-      setMessage(`Reserva confirmada para el ${bookingDate} de ${startHour}:${startMinute.toString().padStart(2, "0")} a ${endHour}:${endMinute.toString().padStart(2, "0")} horas.\n\n${orderSummary?.chairsSummary}\n${orderSummary?.tablesSummary}\nCosto total de la reserva por horas: ${hours} x $${HOURLY_RATE} = $${totalHoursCost}\nCosto total de la reserva: $${totalCost}`);
+    setMessage(`Reserva confirmada para el ${bookingDate} de ${startHour}:${startMinute.toString().padStart(2, "0")} a ${endHour}:${endMinute.toString().padStart(2, "0")} horas.\n\n${orderSummary.chairsSummary}\n${orderSummary.tablesSummary}\nCosto total de la reserva por horas: ${hours} x $${HOURLY_RATE} = $${totalHoursCost}\nCosto total de la reserva: $${totalCost}`);
 
-      setWhatsappLink(generateWhatsAppMessage());
-    }
-  };
+    setWhatsappLink(generateWhatsAppMessage());
+};
+  
 
   return (
     <>
-      <h4 className="titulo-asistente"></h4>{/*Colocar titulo del asistente*/}
+      <h4 className="titulo-asistente"></h4>
       <div className="ventana-asistente">
         <h5>Buenas tardes, ¿en qué puedo ayudarle?</h5>
         <div className="button-container" style={{ justifyContent: 'center' }}>
@@ -181,37 +161,79 @@ const VirtualAssistant: React.FC = () => {
 
         {showReservation && (
           <div className="reservation-section">
-            <h4>Seleccione la fecha para su reserva</h4>
-            <input
-              type="date"
-              value={bookingDate}
-              onChange={(e) => setBookingDate(e.target.value)}
-              className="input-date"
-            />
-            <h4>Seleccionar horario</h4>
-            
-            <button onClick={handleBooking} className="asistente-button">
-              Confirmar Alquiler
-            </button>
-
-            {message && (
-              <>
-                <p className={message.startsWith("Error:") ? "error-message" : "success-message"}>
-                  {message.split("\n").map((line, index) => (
-                    <span key={index}>
-                      {line}
-                      <br />
-                    </span>
-                  ))}
-                </p>
-                {whatsappLink && (
+              <h4>Seleccione la fecha y hora para su reserva</h4>
+              <input
+                  type="date"
+                  value={bookingDate}
+                  onChange={(e) => setBookingDate(e.target.value)}
+                  className="input-date"
+              />
+          
+              <div className="time-selection-container">
+                  <div className="time-selection">
+                      <label htmlFor="startHour">Hora de inicio:</label>
+                      <select
+                          id="startHour"
+                          value={startHour}
+                          onChange={(e) => setStartHour(Number(e.target.value))}
+                      >
+                          {[...Array(24).keys()].map((hour) => (
+                              <option key={hour} value={hour}>
+                                  {hour.toString().padStart(2, '0')}
+                              </option>
+                          ))}
+                      </select>
+                      <select
+                          id="startMinute"
+                          value={startMinute}
+                          onChange={(e) => setStartMinute(Number(e.target.value))}
+                      >
+                          {[0, 15, 30, 45].map((minute) => (
+                              <option key={minute} value={minute}>
+                                  {minute.toString().padStart(2, '0')}
+                              </option>
+                          ))}
+                      </select>
+                  </div>
+          
+                  <div className="time-selection">
+                      <label htmlFor="endHour">Hora de fin:</label>
+                      <select
+                          id="endHour"
+                          value={endHour}
+                          onChange={(e) => setEndHour(Number(e.target.value))}
+                      >
+                          {[...Array(24).keys()].map((hour) => (
+                              <option key={hour} value={hour}>
+                                  {hour.toString().padStart(2, '0')}
+                              </option>
+                          ))}
+                      </select>
+                      <select
+                          id="endMinute"
+                          value={endMinute}
+                          onChange={(e) => setEndMinute(Number(e.target.value))}
+                      >
+                          {[0, 15, 30, 45].map((minute) => (
+                              <option key={minute} value={minute}>
+                                  {minute.toString().padStart(2, '0')}
+                              </option>
+                          ))}
+                      </select>
+                  </div>
+              </div>
+          
+              <button onClick={handleBooking} className="asistente-button">
+                  Confirmar Alquiler
+              </button>
+              {message && <p className="message">{message}</p>}
+              {whatsappLink && (
                   <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                    <button className="whatsapp-button">Enviar vía WhatsApp</button>
+                      <button className="whatsapp-button">Enviar vía WhatsApp</button>
                   </a>
-                )}
-              </>
-            )}
+              )}
           </div>
+          
         )}
       </div>
     </>
