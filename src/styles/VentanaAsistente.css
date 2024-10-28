@@ -144,3 +144,57 @@
     color: blue; /* Color para mensajes informativos */
     text-align: center;
 }
+
+.time-selection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.time-selection label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.time-selection select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    width: 48%;
+}
+
+.time-selection select:focus {
+    border-color: #007bff;
+}
+
+.time-selection-container {
+    margin-top: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.asistente-button {
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 12px 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 15px;
+}
+
+.asistente-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
