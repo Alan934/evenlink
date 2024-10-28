@@ -125,7 +125,7 @@ const VirtualAssistant: React.FC = () => {
 
   return (
     <>
-      <h4 className="titulo-asistente">Realiza tu Consulta</h4>
+      {/*<h4 className="titulo-asistente">Realiza tu Consulta</h4>*/}
       <div className="ventana-asistente">
         <h5>Buenas tardes, ¿en qué puedo ayudarle?</h5>
         <div className="button-container" style={{ justifyContent: 'center' }}>
