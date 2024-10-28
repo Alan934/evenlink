@@ -25,11 +25,22 @@ const VirtualAssistant: React.FC = () => {
 
   const [whatsappLink, setWhatsappLink] = useState("");
 
+  const handleShowReservation = () => {
+    setShowReservation(true);
+    setShowPricing(false);
+    setMessage("");
+  };
+
+  const handleShowPricing = () => {
+    setShowPricing(true);
+    setShowReservation(false);
+    setMessage("");
+  };
+
   const generateWhatsAppMessage = () => {
     let details = "";
     const whatsappNumber = "542615406465";
   
-    // Añadir la fecha de reserva al mensaje
     const formattedBookingDate = bookingDate
       ? `Reserva para el ${bookingDate} de ${startHour}:${startMinute.toString().padStart(2, "0")} a ${endHour}:${endMinute.toString().padStart(2, "0")}`
       : "Fecha no seleccionada";
@@ -40,12 +51,10 @@ const VirtualAssistant: React.FC = () => {
       details = `${formattedBookingDate}\nCosto total por horas: ${hours} x $${HOURLY_RATE} = $${hours * HOURLY_RATE}`;
     }
   
-    // Solo incluye la invitación si se está generando el mensaje sin orderSummary
     details += `\n\nPor favor, elija una fecha para su reserva.`;
   
     return `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(details)}`;
-  };
-  
+  };  
 
   const handleLoadOrder = () => {
     const totalChairsCost = chairs * CHAIR_PRICE;
@@ -110,7 +119,6 @@ const VirtualAssistant: React.FC = () => {
 
       setMessage(`Reserva confirmada para el ${bookingDate} de ${startHour}:${startMinute.toString().padStart(2, "0")} a ${endHour}:${endMinute.toString().padStart(2, "0")} horas.\n\n${orderSummary?.chairsSummary}\n${orderSummary?.tablesSummary}\nCosto total de la reserva por horas: ${hours} x $${HOURLY_RATE} = $${totalHoursCost}\nCosto total de la reserva: $${totalCost}`);
 
-      // Generar el enlace de WhatsApp solo después de confirmar la reserva
       setWhatsappLink(generateWhatsAppMessage());
     }
   };
@@ -120,23 +128,11 @@ const VirtualAssistant: React.FC = () => {
       <h4 className="titulo-asistente">Asistente Virtual</h4>
       <div className="ventana-asistente">
         <h5>Buenas tardes, ¿en qué puedo ayudarle?</h5>
-        <div className="button-container">
-          <button
-            className="asistente-button"
-            onClick={() => {
-              setShowReservation(true);
-              setShowPricing(false);
-            }}
-          >
+        <div className="button-container" style={{ justifyContent: 'center' }}>
+          <button className="asistente-button" onClick={handleShowReservation}>
             Realizar Reserva
           </button>
-          <button
-            className="asistente-button"
-            onClick={() => {
-              setShowPricing(true);
-              setShowReservation(false);
-            }}
-          >
+          <button className="asistente-button" onClick={handleShowPricing}>
             Precios y Horarios
           </button>
         </div>
@@ -193,7 +189,6 @@ const VirtualAssistant: React.FC = () => {
               className="input-date"
             />
             <h4>Seleccionar horario</h4>
-            {/* Código existente para seleccionar horario */}
             
             <button onClick={handleBooking} className="asistente-button">
               Confirmar Alquiler
@@ -201,25 +196,22 @@ const VirtualAssistant: React.FC = () => {
 
             {message && (
               <>
-                <p>{message}</p>
-                {/* Botón para enviar vía WhatsApp solo después de confirmar */}
+                <p className={message.startsWith("Error:") ? "error-message" : "success-message"}>
+                  {message.split("\n").map((line, index) => (
+                    <span key={index}>
+                      {line}
+                      <br />
+                    </span>
+                  ))}
+                </p>
                 {whatsappLink && (
                   <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                    <button className="asistente-button">Enviar vía WhatsApp</button>
+                    <button className="whatsapp-button">Enviar vía WhatsApp</button>
                   </a>
                 )}
               </>
             )}
           </div>
-        )}
-
-        {message && (
-          <p>{message.split("\n").map((line, index) => (
-            <span key={index}>
-              {line}
-              <br />
-            </span>
-          ))}</p>
         )}
       </div>
     </>

@@ -10,44 +10,46 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 600px; /* Aumenté el ancho máximo */
+    max-width: 600px;
     padding: 20px;
     margin: 0 auto;
     margin-bottom: 20px;
-    background-color: #ffffff; /* Fondo blanco para mayor contraste */
-    border: 1px solid #e0e0e0; /* Borde más suave */
-    border-radius: 12px; /* Esquinas más redondeadas */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra más difusa */
-    font-size: 16px; /* Tamaño de fuente mayor */
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
     color: #333;
 }
 
 .button-container {
     display: flex;
-    gap: 15px; /* Mayor espacio entre botones */
+    gap: 15px;
     margin-top: 20px;
     margin-bottom: 25px;
+    width: 100%;
 }
 
 .asistente-button {
-    padding: 12px 20px; /* Tamaño del botón más grande */
+    padding: 12px 20px;
     border: none;
-    border-radius: 8px; /* Esquinas redondeadas */
-    background-color: #007bff; /* Color principal */
+    border-radius: 8px;
+    background-color: #007bff;
     color: white;
     cursor: pointer;
-    font-size: 16px; /* Tamaño de fuente del botón más grande */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Añadí transición para efecto de hover */
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
 }
 
 .asistente-button:hover {
-    background-color: #0056b3; /* Color al pasar el mouse */
-    transform: translateY(-2px); /* Pequeño desplazamiento hacia arriba */
+    background-color: #0056b3;
+    transform: translateY(-2px);
 }
 
 .reservation-section,
 .pricing-section {
-    width: 100%; /* Asegura que ocupe el ancho completo */
+    width: 100%;
     margin-top: 20px;
 }
 
@@ -59,24 +61,24 @@
 
 .input-group h4 {
     margin-bottom: 8px;
-    font-size: 18px; /* Aumento en tamaño de encabezados */
+    font-size: 18px;
 }
 
 .input-date,
 .input-number {
-    padding: 10px; /* Tamaño de entrada más grande */
+    padding: 10px;
     width: 100%;
-    font-size: 16px; /* Tamaño de fuente mayor */
-    border-radius: 8px; /* Esquinas redondeadas */
-    border: 1px solid #ccc; /* Borde más suave */
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
     margin-bottom: 15px;
-    background-color: #f9f9f9; /* Fondo ligeramente gris */
-    transition: border-color 0.3s ease; /* Transición en el borde */
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
 }
 
 .input-date:focus,
 .input-number:focus {
-    border-color: #007bff; /* Borde azul al enfocarse */
+    border-color: #007bff;
 }
 
 .price-list {
@@ -88,17 +90,17 @@
 }
 
 .price-list li {
-    padding: 10px 0; /* Más espacio entre los elementos de la lista */
-    border-bottom: 1px solid #e0e0e0; /* Borde inferior suave */
-    color: #555; /* Color de texto más suave */
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+    color: #555;
 }
 
 .order-summary {
     margin-top: 20px;
-    padding: 15px; /* Espacio interno alrededor del resumen */
-    border: 1px solid #e0e0e0; /* Borde alrededor del resumen */
-    border-radius: 8px; /* Esquinas redondeadas */
-    background-color: #f8f9fa; /* Fondo claro para el resumen */
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #f8f9fa;
     width: 100%;
 }
 
@@ -107,23 +109,38 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    background-color: #e9ecef; /* Fondo claro para mensajes */
+    background-color: #e9ecef;
     color: #333;
     width: 100%;
 }
 
 .whatsapp-button {
-    padding: 12px 20px; /* Tamaño del botón más grande */
+    padding: 12px 20px;
+    width: 100%;
     border: none;
-    border-radius: 8px; /* Esquinas redondeadas */
-    background-color: #28a745; /* Color verde para el botón de WhatsApp */
+    border-radius: 8px;
+    background-color: #28a745;
     color: white;
     cursor: pointer;
-    font-size: 16px; /* Tamaño de fuente del botón más grande */
+    font-size: 16px;
     transition: background-color 0.3s ease, transform 0.2s ease; /* Transición para efecto de hover */
 }
 
 .whatsapp-button:hover {
-    background-color: #218838; /* Color más oscuro al pasar el mouse */
-    transform: translateY(-2px); /* Pequeño desplazamiento hacia arriba */
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+.success-message {
+    color: green; /* Color para mensajes exitosos */
+}
+  
+.error-message {
+    color: red; /* Color para mensajes de error */
+    text-align: center;
+}
+
+.info-message {
+    color: blue; /* Color para mensajes informativos */
+    text-align: center;
 }
