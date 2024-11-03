@@ -15,7 +15,7 @@ const FloatingBubble = () => {
         src="https://res.cloudinary.com/de9ojxknm/image/upload/v1722532720/Footer/bybzpetuzhkypkmlkwax.svg" 
         alt="WhatsApp Icon" 
         style={{
-          width: '60px',  // Ajusta el tamaño según tus necesidades
+          width: '60px',
           height: '60px',
         }} 
       />

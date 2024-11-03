@@ -4,7 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import '../styles/Mapa.css';
 
-// Importar los iconos del marcador directamente
+
 import markerIconUrl from 'leaflet/dist/images/marker-icon.png';
 import markerShadowUrl from 'leaflet/dist/images/marker-shadow.png';
 import markerIconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
@@ -12,11 +12,11 @@ import markerIconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
 // Configura el icono del marcador
 const icon = L.icon({
   iconUrl: markerIconUrl,
-  iconSize: [25, 41], // tamaño del ícono
-  iconAnchor: [12, 41], // punto del ícono que corresponde al marcador
-  popupAnchor: [1, -34], // punto desde el que se abre el popup respecto al icono
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
   shadowUrl: markerShadowUrl,
-  shadowSize: [41, 41], // tamaño de la sombra
+  shadowSize: [41, 41],
 });
 
 const Mapa: React.FC = () => {

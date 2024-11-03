@@ -1,6 +1,6 @@
 import React from "react";
 import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css"; // Importa los estilos predeterminados de react-calendar
+import "react-calendar/dist/Calendar.css";
 import "../styles/Calendario.css";
 
 const Calendario: React.FC = () => {

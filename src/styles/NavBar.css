@@ -61,10 +61,10 @@
     
     background-color: #162C29;
     position: absolute;
-    top: 60px; /* Espaciado adicional debajo del logo */
+    top: 60px;
     left: 0;
     z-index: 10;
-    border-radius: 0 0 8px 8px; /* Opcional: bordes redondeados */
+    border-radius: 0 0 8px 8px;
   }
 
   .nav-items.open {
@@ -73,7 +73,7 @@
 
   .nav-item {
     font-size: 18px;
-    margin: 12px 0; /* Más espacio entre los elementos */
+    margin: 12px 0;
   }
 }
 
