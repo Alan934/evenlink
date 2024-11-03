@@ -8,6 +8,7 @@ import Servicios from "./components/Servicios";
 import Calendario from "./components/Calendario";
 import FloatingBubble from "./components/BurbujaWhatsApp";
 import CalendarioReservas from "./components/CalendarioReservas";
+import Mapa from "./components/Mapa"; // Asegúrate de que este import sea correcto
 
 // VARIABLE GLOBAL PARA PANEJO DE PÁGINAS
 interface GlobalContextProps {
@@ -33,6 +34,7 @@ function App() {
       )}
       {mensajeGlobal === "servicios" && <Servicios />}
       {mensajeGlobal === "calendario" && <CalendarioReservas />}
+      {mensajeGlobal === "mapa" && <Mapa />}
       {mensajeGlobal === "contacto" && <div>Contacto</div>}
       <PieDePagina />
       <FloatingBubble />

@@ -46,6 +46,9 @@ const NavBar: React.FC = () => {
         <div onClick={() => handleNavItemClick("calendario")} className="nav-item">
           Calendario
         </div>
+        <div onClick={() => handleNavItemClick("mapa")} className="nav-item">
+          Mapa
+        </div>
         <div onClick={() => handleNavItemClick("contacto")} className="nav-item">
           Contacto
         </div>
