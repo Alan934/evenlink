@@ -1,0 +1,35 @@
+.calendar-container {
+  max-width: 600px;
+  margin: 40px auto; 
+  padding: 20px;
+  background-color: #f0f2f5;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.calendar-wrapper {
+  border: 2px solid #4285f4; 
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.calendar-iframe {
+  border: 0;
+  width: 100%;
+  height: 400px;
+}
+
+.titulo {
+  font-size: 2rem;
+  color: #162C29;
+  margin-bottom: 20px;
+}
+
+.descripcion {
+  margin-top: 20px;
+  font-size: 1rem;
+  color: #162C29;
+  line-height: 1.6;
+}

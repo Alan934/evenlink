@@ -1,15 +1,26 @@
 .pie-de-pagina {
-    background-color: #162C29;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-    font-size: 0.9rem;
-  }
-  
-  .contacto, .empresa-info {
-    margin-bottom: 10px;
-  }
-  
-  .contacto p, .empresa-info p {
-    margin: 5px 0;
-  }
+  background-color: #162C29;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.contacto, .empresa-info {
+  margin-bottom: 10px;
+}
+
+.contacto p, .empresa-info p {
+  margin: 5px 0;
+}
+
+.contact-link {
+  color: #43a047;
+  font-weight: bold; 
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+  color: #66bb6a;
+}

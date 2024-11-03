@@ -7,6 +7,7 @@ import PieDePagina from "./components/PieDePagina";
 import Servicios from "./components/Servicios";
 import Calendario from "./components/Calendario";
 import FloatingBubble from "./components/BurbujaWhatsApp";
+import CalendarioReservas from "./components/CalendarioReservas";
 
 // VARIABLE GLOBAL PARA PANEJO DE PÁGINAS
 interface GlobalContextProps {
@@ -31,9 +32,8 @@ function App() {
         </>
       )}
       {mensajeGlobal === "servicios" && <Servicios />}
-      {mensajeGlobal === "calendario" && <Calendario />}
+      {mensajeGlobal === "calendario" && <CalendarioReservas />}
       {mensajeGlobal === "contacto" && <div>Contacto</div>}
-      <NavBar />
       <PieDePagina />
       <FloatingBubble />
     </GlobalContext.Provider>

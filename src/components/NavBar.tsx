@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { GlobalContext } from "../App";
 import "../styles/NavBar.css";
-import logo from "../assets/logo.png"; // Importa tu logo
+import logo from "../assets/logo.png";
 
 const NavBar: React.FC = () => {
   const globalContext = useContext(GlobalContext);
@@ -18,9 +18,14 @@ const NavBar: React.FC = () => {
   };
 
   const handleNavItemClick = (mensaje: string) => {
-    setMensajeGlobal(mensaje);
     setIsMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    if (mensaje === "contacto") {
+      document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      setMensajeGlobal(mensaje);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   return (
@@ -32,28 +37,16 @@ const NavBar: React.FC = () => {
         ☰
       </div>
       <div className={`nav-items ${isMenuOpen ? "open" : ""}`}>
-        <div
-          onClick={() => handleNavItemClick("inicio")}
-          className="nav-item"
-        >
+        <div onClick={() => handleNavItemClick("inicio")} className="nav-item">
           Inicio
         </div>
-        <div
-          onClick={() => handleNavItemClick("servicios")}
-          className="nav-item"
-        >
+        <div onClick={() => handleNavItemClick("servicios")} className="nav-item">
           Servicios
         </div>
-        <div
-          onClick={() => handleNavItemClick("calendario")}
-          className="nav-item"
-        >
+        <div onClick={() => handleNavItemClick("calendario")} className="nav-item">
           Calendario
         </div>
-        <div
-          onClick={() => handleNavItemClick("contacto")}
-          className="nav-item"
-        >
+        <div onClick={() => handleNavItemClick("contacto")} className="nav-item">
           Contacto
         </div>
       </div>
