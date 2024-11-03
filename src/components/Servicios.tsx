@@ -14,8 +14,7 @@ const Servicios: React.FC = () => {
         <h2 className="subtitulo">Salón Multi-Propósito:</h2>
         <img src={salon1} alt="Logo, Salón 1" className="imagen" />
         <p className="texto">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec
-          odio. Praesent libero. Sed cursus ante dapibus diam.
+          Contamos con un salón versátil y adaptable a eventos de diferentes tamaños y tipos. Con una experiencia de 35 años ofreciendo espacios para reuniones, este salón es ideal para eventos que requieren capacidad y flexibilidad, permitiendo organizar desde reuniones corporativas hasta celebraciones familiares.
         </p>
       </div>
 
@@ -23,8 +22,7 @@ const Servicios: React.FC = () => {
         <h2 className="subtitulo">Salón de Eventos Infantiles:</h2>
         <img src={salon2} alt="Salón 2" className="imagen" />
         <p className="texto">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec
-          odio. Praesent libero. Sed cursus ante dapibus diam.
+          Nuestro salón especializado en eventos infantiles lleva más de 15 años creando experiencias memorables para los más pequeños. Este espacio está diseñado exclusivamente para celebraciones infantiles, con decoraciones y configuraciones que priorizan la seguridad y la diversión.
         </p>
       </div>
 
@@ -32,8 +30,7 @@ const Servicios: React.FC = () => {
         <h2 className="subtitulo">Mesas:</h2>
         <img src={mesas} alt="Mesas" className="imagen" />
         <p className="texto">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec
-          odio. Praesent libero. Sed cursus ante dapibus diam.
+          Ofrecemos una amplia gama de mesas de alta calidad en diferentes tamaños y estilos, ideales para todo tipo de eventos. Nuestro equipo se encarga de adaptarlas y prepararlas según las necesidades específicas de cada evento, asegurando comodidad y estética.
         </p>
       </div>
 
@@ -41,8 +38,7 @@ const Servicios: React.FC = () => {
         <h2 className="subtitulo">Sillas:</h2>
         <img src={sillas} alt="Sillas" className="imagen" />
         <p className="texto">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec
-          odio. Praesent libero. Sed cursus ante dapibus diam.
+          Disponemos de una variedad de sillas cómodas y elegantes que se ajustan a cualquier tipo de evento. Desde sillas para banquetes formales hasta opciones más casuales para eventos al aire libre, nuestro inventario garantiza calidad y estilo para complementar la decoración de cada celebración.
         </p>
       </div>
     </div>
